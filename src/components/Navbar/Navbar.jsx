@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const Navbar = () => {
   return (
@@ -12,18 +13,34 @@ const Navbar = () => {
         </Link>
 
         <nav className="flex items-center gap-6 text-sm font-medium">
-          <Link
-            className="text-gray-600 hover:text-blue-600 transition-colors"
-            to="/login"
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-105"
-          >
-            Get Started
-          </Link>
+          <SignedOut>
+            <Link
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              to="/login"
+            >
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-105"
+            >
+              Get Started
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <Link
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+              to="/integrations"
+            >
+              Integrations
+            </Link>
+            <Link
+              to="/chat"
+              className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-105"
+            >
+              Chat
+            </Link>
+          </SignedIn>
         </nav>
       </div>
     </header>
