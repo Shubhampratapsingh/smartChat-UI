@@ -12,6 +12,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Integrations from "./pages/Integrations/Integrations";
+import Chat from "./pages/Chat/Chat";
 
 function App() {
   return (
@@ -32,14 +33,14 @@ function App() {
             }
           />
 
-          {/* <Route
+          <Route
             path="/chat"
             element={
               <Protect fallback={<Navigate to="/login" />}>
-                <SuperAI />
+                <Chat />
               </Protect>
             }
-          /> */}
+          />
 
           <Route
             path="*"
