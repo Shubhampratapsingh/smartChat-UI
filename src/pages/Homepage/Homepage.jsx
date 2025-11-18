@@ -1,50 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function Homepage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-indigo-50 text-gray-900 overflow-hidden">
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-
-      <header className="relative backdrop-blur-md bg-white/70 border-b border-gray-200/50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30">
-              AI
-            </div>
-            <h1 className="text-xl font-bold text-gray-900">SmartChat</h1>
-          </div>
-
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <a
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-              href="#features"
-            >
-              Features
-            </a>
-            <a
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-              href="#pricing"
-            >
-              Pricing
-            </a>
-            <a
-              className="text-gray-600 hover:text-blue-600 transition-colors"
-              href="/login"
-            >
-              Login
-            </a>
-            <a
-              href="/signup"
-              className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-105"
-            >
-              Get Started
-            </a>
-          </nav>
-        </div>
-      </header>
-
-      {/* hero */}
       <section className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="inline-block px-4 py-1.5 bg-blue-100 border border-blue-200 rounded-full text-sm text-blue-700 font-medium">
@@ -65,12 +23,12 @@ export default function Homepage() {
           </p>
 
           <div className="flex gap-4 pt-4">
-            <a
-              href="/signup"
+            <Link
+              to="/register"
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all hover:scale-105 hover:-translate-y-0.5"
             >
               Start Free Trial
-            </a>
+            </Link>
             <a
               href="#features"
               className="px-8 py-4 bg-white border-2 border-gray-200 rounded-xl font-semibold text-gray-700 hover:border-blue-300 hover:bg-blue-50 transition-all hover:scale-105 hover:-translate-y-0.5"
@@ -134,7 +92,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* features */}
       <section id="features" className="relative max-w-7xl mx-auto px-6 py-20">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-block px-4 py-1.5 bg-indigo-100 border border-indigo-200 rounded-full text-sm text-indigo-700 font-medium">
@@ -226,7 +183,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* pricing */}
       <section id="pricing" className="relative max-w-7xl mx-auto px-6 py-20">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-block px-4 py-1.5 bg-blue-100 border border-blue-200 rounded-full text-sm text-blue-700 font-medium">
@@ -331,41 +287,15 @@ export default function Homepage() {
               </li>
             </ul>
 
-            <a
-              href="/signup"
+            <Link
+              to="/register"
               className="block w-full text-center px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all hover:scale-105"
             >
               Get Started Free
-            </a>
+            </Link>
           </div>
         </div>
       </section>
-
-      <footer className="relative border-t border-gray-200 backdrop-blur-md bg-white/70">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/30">
-                AI
-              </div>
-              <p className="text-sm text-gray-600">
-                SmartChat © 2024. Designed for innovators.
-              </p>
-            </div>
-            <div className="flex gap-6 text-sm text-gray-600">
-              <a href="#" className="hover:text-blue-600 transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-blue-600 transition-colors">
-                Terms
-              </a>
-              <a href="#" className="hover:text-blue-600 transition-colors">
-                Contact
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
