@@ -4,7 +4,6 @@
 export const BASE_URL = "http://localhost:9002/";
 
 export const INTEGRATIONS = {
-  LIST_PROVIDERS: "integrations/providers",
   CREATE_TOKEN: "integrations/connect",
   LIST_CONNECTION: "integrations/connections",
   DELETE_CONNECTION: "integrations/delete-connection",

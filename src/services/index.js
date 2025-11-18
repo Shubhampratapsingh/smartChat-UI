@@ -48,16 +48,6 @@ export function useAPIService() {
   async function getProvidersList() {
     try {
       const api = await getAPI();
-      const res = await api.get(INTEGRATIONS.LIST_PROVIDERS);
-      return res.data;
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  async function getProvidersListForHomepage() {
-    try {
-      const api = await getAPI();
       const res = await api.get(INTEGRATIONS.PUBLIC_LIST_INTEGRATIONS);
       return res.data;
     } catch (error) {
@@ -78,9 +68,8 @@ export function useAPIService() {
   return {
     //INTEGRATIONS
     getConnectionsList,
-    getProvidersList,
     connectWithProvider,
     deleteUserConnection,
-    getProvidersListForHomepage,
+    getProvidersList,
   };
 }

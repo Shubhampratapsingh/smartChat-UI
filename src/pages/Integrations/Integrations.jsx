@@ -17,7 +17,7 @@ const Integrations = () => {
     setPending(true);
     try {
       const [providersRes, userConnectionsRes] = await Promise.all([
-        apiService.getProvidersListForHomepage(),
+        apiService.getProvidersList(),
         apiService.getConnectionsList(),
       ]);
 
