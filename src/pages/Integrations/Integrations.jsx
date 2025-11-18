@@ -126,7 +126,7 @@ const Integrations = () => {
       {
         name: "Name",
         cell: (row) => (
-          <span className="text-capitalize fs-6">{row?.name || "—"}</span>
+          <span className="capitalize text-base">{row?.name || "—"}</span>
         ),
         sortable: false,
       },
@@ -134,22 +134,22 @@ const Integrations = () => {
         name: "Status",
         cell: (row) => {
           let text = "Not connected";
-          let colorClass = "bg-secondary";
+          let badgeClasses = "bg-gray-200 text-black";
 
           if (row.userConnection) {
             const status = row.userConnection.status;
             if (status?.toLowerCase() === "initiated") {
               text = "Initiated";
-              colorClass = "bg-warning text-dark";
+              badgeClasses = "bg-yellow-300 text-black";
             } else if (status?.toLowerCase() === "active") {
               text = "Connected";
-              colorClass = "bg-success";
+              badgeClasses = "bg-green-600 text-white";
             }
           }
 
           return (
             <span
-              className={`badge ${colorClass} rounded-pill px-2 py-1`}
+              className={`inline-block ${badgeClasses} rounded-full px-2 py-0.5 text-xs`}
               style={{ fontSize: "0.7rem" }}
             >
               {text}
@@ -164,7 +164,7 @@ const Integrations = () => {
           if (!row.userConnection) {
             return (
               <button
-                className="btn btn-primary btn-sm d-flex align-items-center gap-1"
+                className={`inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white`}
                 onClick={() => handleConnect(row)}
                 disabled={connectingId === row.id}
               >
@@ -178,7 +178,7 @@ const Integrations = () => {
           if (status?.toLowerCase() === "initiated") {
             return (
               <button
-                className="btn btn-warning btn-sm"
+                className="text-sm px-3 py-1.5 rounded bg-yellow-300 text-black"
                 onClick={() => handleComplete(row)}
               >
                 Complete
@@ -187,7 +187,7 @@ const Integrations = () => {
           } else if (status?.toLowerCase() === "active") {
             return (
               <button
-                className="btn btn-danger btn-sm"
+                className="text-sm px-3 py-1.5 rounded bg-red-600 hover:bg-red-700 text-white"
                 onClick={() => handleDelete(row)}
               >
                 Delete
@@ -209,16 +209,14 @@ const Integrations = () => {
     return (
       <input
         type="text"
-        className="form-control"
+        className="border rounded px-3 py-2 max-w-xs"
         placeholder="Search connectors..."
         value={filterText}
         onChange={(e) => setFilterText(e.target.value)}
-        style={{ maxWidth: "300px" }}
       />
     );
   }, [filterText]);
 
-  //to be used in table search
   const filteredProviders = providers.filter((provider) =>
     provider.name?.toLowerCase().includes(filterText.toLowerCase())
   );
@@ -226,10 +224,10 @@ const Integrations = () => {
   if (pending) return <Loader text="Loading providers..." />;
 
   return (
-    <div className="container py-4 my-4">
-      <div className="card shadow-sm border-0">
-        <div className="card-body">
-          <h5 className="card-title mb-3">Available Connectors</h5>
+    <div className="container mx-auto py-4 my-4 px-4">
+      <div className="bg-white shadow-sm rounded-lg">
+        <div className="p-6">
+          <h5 className="text-lg font-semibold mb-3">Available Connectors</h5>
           <DataTable
             columns={columns}
             data={filteredProviders}
