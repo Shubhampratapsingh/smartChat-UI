@@ -224,7 +224,7 @@ const Integrations = () => {
   if (pending) return <Loader text="Loading providers..." />;
 
   return (
-    <div className="container mx-auto py-4 my-4 px-4">
+    <div className="container mx-auto py-4 my-4 px-4 h-screen">
       <div className="bg-white shadow-sm rounded-lg">
         <div className="p-6">
           <h5 className="text-lg font-semibold mb-3">Available Connectors</h5>
