@@ -12,7 +12,6 @@ const Integrations = () => {
   const [filterText, setFilterText] = useState("");
   const apiService = useAPIService();
 
-  // Fetch providers and user connections then merge
   const fetchData = async () => {
     setPending(true);
     try {
@@ -54,7 +53,6 @@ const Integrations = () => {
     fetchData();
   }, []);
 
-  // called on connect button
   const handleConnect = async (provider) => {
     setConnectingId(provider.id);
     try {
@@ -69,7 +67,6 @@ const Integrations = () => {
     }
   };
 
-  //called on complete button if status initiated
   const handleComplete = (provider) => {
     const redirectUrl = provider.userConnection?.data?.redirectUrl;
     if (redirectUrl) {
@@ -109,7 +106,6 @@ const Integrations = () => {
     }
   };
 
-  // Memoize columns to avoid recalculation on every render
   const columns = useMemo(
     () => [
       {
@@ -204,7 +200,6 @@ const Integrations = () => {
     [connectingId]
   );
 
-  //Search Filter in table
   const subHeaderComponent = useMemo(() => {
     return (
       <input

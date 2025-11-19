@@ -21,7 +21,6 @@ export default function Chat() {
     }, 50);
   }, [messages, isTyping]);
 
-  // Auto-resize textarea
   useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea) return;
@@ -76,7 +75,6 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Header */}
       <header className="bg-white/80 backdrop-blur-xl border-b border-gray-200/50 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -228,7 +226,6 @@ export default function Chat() {
           </div>
         </div>
 
-        {/* Input Bar */}
         <div className="bg-white/80 backdrop-blur-xl border-t border-gray-200/50 px-4 sm:px-6 py-4">
           <form
             onSubmit={(e) => {
