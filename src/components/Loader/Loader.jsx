@@ -8,24 +8,30 @@ const Loader = ({
   ...props
 }) => {
   const sizeClasses = {
-    sm: "spinner-border-sm",
-    md: "",
-    lg: "fs-1",
+    sm: "w-6 h-6",
+    md: "w-8 h-8",
+    lg: "w-12 h-12",
+  };
+
+  const colorVariants = {
+    primary: "border-blue-600",
+    gray: "border-gray-600",
+    red: "border-red-600",
+    green: "border-green-600",
+    purple: "border-purple-600",
   };
 
   return (
     <div
-      className={`d-flex flex-column align-items-center justify-content-center py-5 ${className}`}
-      style={{ minHeight: "50vh" }}
+      className={`flex flex-col items-center justify-center py-10 min-h-[50vh] ${className}`}
       {...props}
     >
       <div
-        className={`spinner-border text-${variant} ${sizeClasses[size]}`}
-        role="status"
-      >
-        <span className="visually-hidden">Loading...</span>
-      </div>
-      <p className="mt-3 mb-0 text-muted">{text}</p>
+        className={`animate-spin rounded-full border-4 border-t-transparent ${
+          sizeClasses[size]
+        } ${colorVariants[variant] || colorVariants.primary}`}
+      />
+      <p className="mt-4 text-gray-500 text-sm">{text}</p>
     </div>
   );
 };
