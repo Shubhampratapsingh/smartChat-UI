@@ -11,6 +11,8 @@ export default function Chat() {
   const textareaRef = useRef(null);
   const api = useAPIService();
 
+  const chatId = useRef(Date.now().toString()).current;
+
   useEffect(() => {
     const el = listRef.current;
     if (!el) return;
@@ -49,7 +51,7 @@ export default function Chat() {
     setIsTyping(true);
 
     try {
-      const reply = await api.superChat(trimmed, "1234");
+      const reply = await api.superChat(trimmed, chatId);
       addLocalMessage("assistant", reply?.answer);
     } catch (err) {
       console.error(err);
