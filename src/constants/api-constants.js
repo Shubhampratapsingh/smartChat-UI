@@ -1,7 +1,5 @@
-// export const BASE_URL = "https://api.heymeetai.com/";
-// export const CONVERSATION_AGENT_URL = "https://agent.heymeetai.com/";
-
-export const BASE_URL = "http://localhost:9002/";
+// export const BASE_URL = "http://localhost:9002/";
+export const BASE_URL = "https://superchat-api-qdsm.onrender.com/";
 
 export const INTEGRATIONS = {
   CREATE_TOKEN: "integrations/connect",
