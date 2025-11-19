@@ -65,11 +65,25 @@ export function useAPIService() {
     }
   }
 
+  async function superChat(query, chatId) {
+    try {
+      const api = await getAPI();
+      const res = await api.post(INTEGRATIONS.SUPERCHAT, {
+        query,
+        chatId,
+      });
+      return res.data;
+    } catch (error) {
+      return handleError(error);
+    }
+  }
+
   return {
     //INTEGRATIONS
     getConnectionsList,
     connectWithProvider,
     deleteUserConnection,
     getProvidersList,
+    superChat,
   };
 }

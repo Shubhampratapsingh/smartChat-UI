@@ -7,6 +7,6 @@ export const INTEGRATIONS = {
   CREATE_TOKEN: "integrations/connect",
   LIST_CONNECTION: "integrations/connections",
   DELETE_CONNECTION: "integrations/delete-connection",
-  SUPERCHAT: "integrations/superchat",
+  SUPERCHAT: "integrations/chat",
   PUBLIC_LIST_INTEGRATIONS: "integrations/integrations-list",
 };

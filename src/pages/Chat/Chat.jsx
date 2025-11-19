@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Bot, Send, Sparkles, MessageSquare } from "lucide-react";
+import { useAPIService } from "../../services";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -8,6 +9,7 @@ export default function Chat() {
   const [isTyping, setIsTyping] = useState(false);
   const listRef = useRef(null);
   const textareaRef = useRef(null);
+  const api = useAPIService();
 
   useEffect(() => {
     const el = listRef.current;
@@ -37,15 +39,6 @@ export default function Chat() {
     ]);
   };
 
-  const sendMessageToServer = async (_sessionId, text) => {
-    await new Promise((r) => setTimeout(r, 1200));
-    return (
-      "I'm here to help! You asked: \"" +
-      text +
-      '". This is a demo response showcasing the beautiful new interface.'
-    );
-  };
-
   const handleSend = async () => {
     const trimmed = input.trim();
     if (!trimmed || sending) return;
@@ -56,8 +49,8 @@ export default function Chat() {
     setIsTyping(true);
 
     try {
-      const reply = await sendMessageToServer(null, trimmed);
-      addLocalMessage("assistant", reply);
+      const reply = await api.superChat(trimmed, "1234");
+      addLocalMessage("assistant", reply?.answer);
     } catch (err) {
       console.error(err);
       addLocalMessage("assistant", "Sorry, something went wrong.");
