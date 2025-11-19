@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   return (
@@ -40,6 +40,13 @@ const Navbar = () => {
             >
               Chat
             </Link>
+          </SignedIn>
+          <SignedIn>
+            <li className="nav-item">
+              <div className="nav-link ms-1">
+                <UserButton />
+              </div>
+            </li>
           </SignedIn>
         </nav>
       </div>
